@@ -39,6 +39,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 1.4rem;
   color: $color-text-primary;
+  background: $color-main-bg;
 }
 
 a {
@@ -51,4 +52,96 @@ a {
   max-width: 127rem;
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+.heading-primary {
+  font-family: "Raleway", sans-serif;
+  max-width: 72rem;
+  margin: 0 auto 4rem auto;
+  font-size: 4rem;
+}
+
+.main-btn {
+  color: $color-text-primary;
+  background: linear-gradient(90deg, $color-cyan, $color-blue);
+  padding: 2rem 9rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  border-radius: 5rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    transition: 0.3s ease-out;
+  }
+
+  &:hover::before {
+    transform: translate(100%);
+  }
+}
+
+// header
+.header {
+  padding: 7.2rem 0 2rem 0;
+
+  &__nav {
+    @extend .container;
+    max-width: 131rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__nav-list {
+    list-style: none;
+    display: flex;
+  }
+
+  &__nav-item {
+    margin: 0 2rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__nav-link {
+    padding: 1rem;
+    color: $color-text-primary;
+    font-weight: 700;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+      color: $color-cyan;
+    }
+  }
+
+  &__main-content {
+    text-align: center;
+    padding: 0 1.5rem;
+  }
+
+  &__intro-img {
+    margin: 7.2rem auto 4rem auto;
+  }
+
+  &__description {
+    max-width: 62rem;
+    margin: 0 auto 3rem auto;
+    font-size: 2rem;
+  }
 }
