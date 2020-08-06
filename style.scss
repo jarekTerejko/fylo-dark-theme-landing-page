@@ -61,6 +61,10 @@ a {
   font-size: 4rem;
 }
 
+.d-block {
+  display: block;
+}
+
 .main-btn {
   color: $color-text-primary;
   background: linear-gradient(90deg, $color-cyan, $color-blue);
@@ -93,6 +97,12 @@ a {
 // header
 .header {
   padding: 7.2rem 0 2rem 0;
+  background: url(./images/bg-curvy-desktop.svg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 1280px;
+  background-color: $color-intro-email-bg;
 
   &__nav {
     @extend .container;
@@ -143,5 +153,89 @@ a {
     max-width: 62rem;
     margin: 0 auto 3rem auto;
     font-size: 2rem;
+  }
+}
+
+// features
+.features {
+  &__items {
+    max-width: 91rem;
+    padding: 0 1.5rem 2rem 1.5rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 140px;
+    row-gap: 100px;
+  }
+
+  &__item {
+    text-align: center;
+  }
+
+  &__icon-container {
+    height: 88px;
+    margin-bottom: 3rem;
+  }
+
+  &__icon {
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: "Raleway", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+  }
+
+  &__explanation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 60px;
+    padding: 11rem 0;
+  }
+
+  &__explanation-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  &__heading {
+    text-align: left;
+    margin: unset;
+    margin-bottom: 2rem;
+    justify-self: start;
+  }
+
+  &__explanation-description {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 2rem;
+    background-image: linear-gradient(90deg, $color-cyan, $color-blue);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, $color-cyan, $color-blue);
+      position: absolute;
+      left: 0;
+      top: 120%;
+    }
+  }
+
+  &__link-icon {
+    padding-left: 0.8rem;
   }
 }
