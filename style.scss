@@ -192,7 +192,7 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 60px;
-    padding: 11rem 0;
+    padding: 11rem 0 15rem 0;
   }
 
   &__explanation-col {
@@ -237,5 +237,57 @@ a {
 
   &__link-icon {
     padding-left: 0.8rem;
+  }
+}
+
+.testimonials {
+  &__items {
+    max-width: 119rem;
+    padding: 0 3rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -35px;
+      left: 22px;
+      background: url(./images/bg-quotes.png);
+      width: 55px;
+      height: 45px;
+      z-index: -1;
+    }
+  }
+
+  &__item {
+    padding: 4rem 3rem 3rem;
+    background: $color-testimonials-bg;
+    box-shadow: 1px 1px 15px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+  }
+
+  &__text {
+    margin-bottom: 3rem;
+    max-width: 30rem;
+  }
+
+  &__person {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+  }
+
+  &__person-photo {
+    border-radius: 50%;
+  }
+  &__name {
+    font-size: 1.2rem;
+  }
+
+  &__occupation {
+    font-size: 1rem;
   }
 }
