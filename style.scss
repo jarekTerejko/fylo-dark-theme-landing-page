@@ -117,11 +117,12 @@ a {
 
   @include m-q(500px) {
     padding-top: 2rem;
+    min-height: 900px;
   }
 
   @include m-q(375px) {
     background: unset;
-    min-height: 900px;
+    // min-height: 900px;
     background-color: $color-intro-email-bg;
   }
 
@@ -162,7 +163,7 @@ a {
 
   .site-logo {
     @include m-q(500px) {
-      width: 80px;
+      max-width: 80px;
     }
   }
 
