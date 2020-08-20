@@ -8,6 +8,7 @@ $color-text-primary: hsl(0, 0%, 100%);
 $color-cyan: hsl(176, 68%, 64%);
 $color-blue: hsl(198, 60%, 50%);
 $color-main-bg: hsl(218, 28%, 13%);
+$color-nav-list: rgba(24, 31, 42, 0.99);
 $color-footer-bg: hsl(216, 53%, 9%);
 $color-testimonials-bg: hsl(219, 30%, 18%);
 $color-intro-email-bg: hsl(217, 28%, 15%);
@@ -30,6 +31,7 @@ $color-success: hsl(120, 100%, 20%);
 
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 img {
@@ -114,16 +116,11 @@ a {
   background-color: $color-intro-email-bg;
   position: relative;
   z-index: 1;
+  overflow-x: hidden;
 
   @include m-q(500px) {
     padding-top: 2rem;
     min-height: 900px;
-  }
-
-  @include m-q(375px) {
-    background: unset;
-    // min-height: 900px;
-    background-color: $color-intro-email-bg;
   }
 
   @include m-q(375px) {
@@ -136,8 +133,13 @@ a {
       left: 0;
       background: $color-main-bg;
       z-index: -1;
+
+      @include m-q(370px) {
+        height: 470px;
+      }
     }
   }
+
   @include m-q(375px) {
     &::after {
       content: "";
@@ -150,6 +152,10 @@ a {
       background-repeat: no-repeat;
       background-position: center;
       z-index: -1;
+
+      @include m-q(370px) {
+        bottom: 470px;
+      }
     }
   }
 
@@ -159,6 +165,17 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 1;
+
+    @include m-q(370px) {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 6rem;
+      background: $color-main-bg;
+      box-shadow: 1px 1px 15px 10px rgba(0, 0, 0, 0.3);
+    }
   }
 
   .site-logo {
@@ -167,9 +184,47 @@ a {
     }
   }
 
+  &__nav-trigger {
+    border: none;
+    border-radius: 0.2rem;
+    background-color: $color-text-primary;
+    padding: 0.3rem 0;
+    width: 24px;
+    display: flex;
+    display: none;
+
+    @include m-q(370px) {
+      display: block;
+    }
+
+    img {
+      margin: auto;
+    }
+  }
+
   &__nav-list {
     list-style: none;
     display: flex;
+    transition: 0.3s;
+
+    @include m-q(370px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: translateX(100%);
+      width: 100%;
+      position: absolute;
+      top: 6rem;
+      left: 0;
+      min-height: 100vh;
+      z-index: 100;
+      background: $color-nav-list;
+      opacity: 0.97;
+    }
+  }
+
+  &__nav-list.active {
+    transform: translateX(0);
   }
 
   &__nav-item {
@@ -179,12 +234,24 @@ a {
       margin: 0 0.5rem;
     }
 
+    @include m-q(370px) {
+      margin: 0.5rem;
+    }
+
     &:first-child {
       margin-left: 0;
+
+      @include m-q(370px) {
+        margin: 0.5rem;
+      }
     }
 
     &:last-child {
       margin-right: 0;
+
+      @include m-q(370px) {
+        margin: 0.5rem;
+      }
     }
   }
 
@@ -193,6 +260,10 @@ a {
     color: $color-text-primary;
     font-weight: 700;
     transition: all 0.3s ease-out;
+
+    @include m-q(370px) {
+      font-size: 2rem;
+    }
 
     &:hover {
       color: $color-cyan;
