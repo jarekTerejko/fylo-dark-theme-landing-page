@@ -115,7 +115,7 @@ a {
   min-height: 1280px;
   background-color: $color-intro-email-bg;
   position: relative;
-  z-index: 1;
+  z-index: 3;
   overflow-x: hidden;
 
   @include m-q(500px) {
@@ -463,6 +463,8 @@ a {
 // sign-up
 .sign-up {
   min-height: 360px;
+  position: relative;
+  z-index: 2;
 
   &__form {
     position: relative;
@@ -580,7 +582,7 @@ a {
   padding-top: 20rem;
   background: $color-footer-bg;
   position: relative;
-  z-index: -1;
+  z-index: 1;
 
   @include m-q(1120px) {
     padding-bottom: 6rem;
